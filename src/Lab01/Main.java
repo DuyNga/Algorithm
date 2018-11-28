@@ -27,11 +27,11 @@ public class Main {
 	}
 
 	// Use a nested loop to solve the problem without creating an extra array.
-	public static int algorithm2(int[] arr) {
-		int res = 0;
-
-		return res;
-	}
+//	public static int algorithm2(int[] arr) {
+//		int res = 0;
+//
+//		return res;
+//	}
 
 	// Create a new array consisting of even numbers only. Then use nested loops to
 	// solve the problem using
@@ -67,7 +67,7 @@ public class Main {
 		return res;
 	}
 
-	private static int algorithm3(int[] input) {
+	private static int algorithm2(int[] input) {
 		int maxDis = -1;
 		for (int i = 0; i < input.length - 1; i++) {
 			if (input[i] % 2 != 0)
@@ -80,6 +80,25 @@ public class Main {
 					maxDis = r;
 			}
 		}
+		return maxDis;
+	}
+
+	private static int algorithm3(int[] input) {
+		int maxDis = -1;
+		int min = -1;
+		int max = -1;
+		for (int i = 0; i < input.length; i++) {
+			if (input[i] % 2 != 0)
+				continue;
+			if (input[i] > max) {
+				max = input[i];
+				if (min == -1)
+					min = max;
+			} else if (input[i] < min) {
+				min = input[i];
+			}
+		}
+		maxDis = max - min;
 		return maxDis;
 	}
 
@@ -97,7 +116,7 @@ public class Main {
 
 		final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 		for (int i = 0; i < input.size(); i++) {
-			System.out.println(String.format("%s %s %s", input.get(i), algo[i % 4], times[(int) i / 4]));
+			System.out.println(String.format("%s\t%s\t%s", input.get(i), algo[i % 4], times[(int) i / 4]));
 			dataset.addValue(input.get(i), algo[i % 4], times[(int) i / 4]);
 		}
 
@@ -130,7 +149,7 @@ public class Main {
 			r.add(elapsedTime);
 
 			startTime = System.currentTimeMillis();
-			System.out.println(algorithm1(arr));
+			System.out.println(algorithm2(arr));
 			elapsedTime = System.currentTimeMillis() - startTime;
 			r.add(elapsedTime);
 
@@ -143,7 +162,7 @@ public class Main {
 			System.out.println(algorithm4(arr));
 			elapsedTime = System.currentTimeMillis() - startTime;
 			r.add(elapsedTime);
-			
+
 			i++;
 		}
 

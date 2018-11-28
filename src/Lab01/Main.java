@@ -26,13 +26,6 @@ public class Main {
 		return arr;
 	}
 
-	// Use a nested loop to solve the problem without creating an extra array.
-//	public static int algorithm2(int[] arr) {
-//		int res = 0;
-//
-//		return res;
-//	}
-
 	// Create a new array consisting of even numbers only. Then use nested loops to
 	// solve the problem using
 	// the newly created array of even numbers only.
@@ -67,6 +60,9 @@ public class Main {
 		return res;
 	}
 
+	/*
+	 * Use a nested loop to solve the problem without creating an extra array.
+	 */
 	private static int algorithm2(int[] input) {
 		int maxDis = -1;
 		for (int i = 0; i < input.length - 1; i++) {
@@ -83,6 +79,9 @@ public class Main {
 		return maxDis;
 	}
 
+	/*
+	 * Use one loop. Find max and min of even integers. Compute max – min.
+	 */
 	private static int algorithm3(int[] input) {
 		int maxDis = -1;
 		int min = -1;
@@ -102,6 +101,9 @@ public class Main {
 		return maxDis;
 	}
 
+	/*
+	 * Use Streams to find the max and min. Compute max – min.
+	 */
 	private static int algorithm4(int[] input) {
 		IntSummaryStatistics ints = Arrays.stream(input).filter(x -> x % 2 == 0).summaryStatistics();
 		if (ints.getCount() <= 0)
@@ -112,7 +114,7 @@ public class Main {
 
 	private static void createGraph(List<Long> input) throws IOException {
 		final String[] algo = { "algo1", "algo2", "algo3", "algo4" };
-		final String[] times = { "time1", "time2", "time3", "time4" };
+		final String[] times = { "1000", "2000", "3000", "4000" };
 
 		final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 		for (int i = 0; i < input.size(); i++) {
@@ -130,14 +132,6 @@ public class Main {
 	}
 
 	public static void main(String[] args) throws IOException {
-//		int[] arr = generateInt(1,10000,1000);
-
-		// System.out.print("Given random array " + Arrays.toString(arr));
-//		long startTime = System.currentTimeMillis();
-//		int dis = algorithm1(arr);
-//		long elapsedTime = System.currentTimeMillis() - startTime;
-//		System.out.println("\nThe largest distance between any two even integers is: " + dis);
-//		System.out.println("Elapsed time (miliseconds): " + elapsedTime);
 		int i = 0;
 		List<Long> r = new ArrayList<>();
 		while (i <= 3) {

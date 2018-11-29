@@ -83,22 +83,23 @@ public class Main {
 	 * Use one loop. Find max and min of even integers. Compute max – min.
 	 */
 	private static int algorithm3(int[] input) {
-		int maxDis = -1;
-		int min = -1;
-		int max = -1;
-		for (int i = 0; i < input.length; i++) {
-			if (input[i] % 2 != 0)
-				continue;
-			if (input[i] > max) {
-				max = input[i];
-				if (min == -1)
-					min = max;
-			} else if (input[i] < min) {
-				min = input[i];
+		int maxDis  = -1;
+		int maxEven = -100000;
+		int minEven = 100000;
+		int m = input.length;
+		for (int i = 0; i < m; i++) 
+			if (input[i] % 2 == 0)
+			{
+				if (maxEven < input[i])
+					maxEven = input[i];
+				if (minEven > input[i])
+					minEven = input[i];
+				
 			}
-		}
-		maxDis = max - min;
-		return maxDis;
+
+			if (maxEven!=-100000)
+				maxDis = maxEven-minEven;
+		 return maxDis;
 	}
 
 	/*

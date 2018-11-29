@@ -49,8 +49,8 @@ public class Main {
 
 		// Find the largest distance
 		int res = 0;
-		for (int i = 0; i < evenArr.length; i++) {
-			for (int j = 0; j < evenArr.length; j++) {
+		for (int i = 0; i < evenArr.length - 1; i++) {
+			for (int j = i + 1; j < evenArr.length; j++) {
 				int dis = Math.abs(evenArr[i] - evenArr[j]);
 				if (dis > res)
 					res = dis;

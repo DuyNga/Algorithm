@@ -114,7 +114,7 @@ public class Main {
 	}
 
 	private static void createGraph(List<Long> input) throws IOException {
-		final String[] algo = { "algo1", "algo2", "algo3", "algo4" };
+		final String[] algo = { "Algo1", "Algo2", "Algo3", "Algo4" };
 		final String[] times = { "1000", "2000", "3000", "4000" };
 
 		final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
